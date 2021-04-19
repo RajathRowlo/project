@@ -1,0 +1,63 @@
+<div class="row pt-3 g-0 user">
+  <div class="col-md-3 col-sm-3 sidenav">
+    <div class="search-hero ps-3">
+      <input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off"
+        placeholder="&#61442;  Start searching for a dish by name or restaurant">
+    </div>
+    <div class="d-grid mx-auto position-fixed ms-5 " style="margin-left: 60px;">
+      <button class="btn " style="background-color:  #c65039; color: white;" (click)="alldish()">
+        All Dish
+      </button>
+      <br>
+      <button class="btn " (click)="starters()">
+        Starters
+      </button>
+      <br>
+      <button class="btn " (click)="maincourse()">
+        Main Course
+      </button>
+      <br>
+      <button class="btn " (click)="Accompaniment()">
+        Accompaniment
+      </button>
+      <br>
+      <button class="btn " (click)="sidedish()">
+        Side Dish
+      </button>
+      <br>
+      <button class="btn " (click)="Desert()">
+        Desert
+      </button>
+      <br>
+      <button class="btn " (click)="Softdrinks()">
+        Soft Drinks
+      </button>
+    </div>
+  </div>
+  <div class="col-md-9 col-sm-9">
+    <!-- all dish -->
+    <div class="container">
+      <div class="row row-cols-2 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let adish of adishArray | filter:searchText" style="margin-bottom: 40pt;">
+          <div class="card h-100" style="background-color: azure;">
+            <img [src]="adish?.photo" class="card-img-top" alt="photo">
+            <div class="card-body">
+              <h5 class="card-title">Restaurant : {{adish?.restaurantname}}</h5>
+              <h6>Dish : {{adish?.dishname}}</h6>
+              <p>Price : {{adish?.dishprice}}</p>
+              <p>{{adish?.dishdescription}}</p>
+            </div>
+            <div class="card-footer d-grid d-md-flex justify-content-md-end">
+              <button class="btn " style="background-image: linear-gradient(to right,rgb(22, 22, 104),black)"
+                (click)="add(adish)">Add</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+

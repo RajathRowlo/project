@@ -1,0 +1,42 @@
+add(adish) {
+
+    this.username = localStorage.getItem("username")
+
+    let productObj = { "username": this.username, "dishid": adish.dishid, "dishname": adish.dishname, "dishprice": adish.dishprice, "dishtype": product.dishtype, "restaurantname": adish.restaurantname, "dishdescription": adish.dishdescription, "photo": adish.photo   }
+
+    //add product to cart
+    this.us.addProducttoCart(productObj).subscribe(
+      res => {
+        if (res["message"] == "failed") {
+          alert(res["reason"])
+          //navigate to login
+          localStorage.clear()
+          this.router.navigateByUrl("/login")
+          
+        }
+        else {
+          if (res['message'] == "product added to cart") {
+            alert(res['message'])
+           // this.us.setCartSize(res["cartsize"])
+          }
+          else if (res['message'] == "Quantity updated") {
+            alert(res['message'])
+}
+           else {
+             alert(res['message'])
+             this.router.navigateByUrl("/login")
+            }
+
+            this.us.getCount(adish.userName).subscribe((res) => {
+                this.us.setNum(res['message'] + 1);
+               });
+        }
+      },
+      err => {
+        console.log(err)
+        alert("something went wrong")
+      }
+      
+    )
+     
+  }

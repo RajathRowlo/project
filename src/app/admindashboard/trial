@@ -1,0 +1,103 @@
+<form [formGroup]='form' (ngSubmit)="onSubmit(form)"> 
+    <div class="row">
+        <div class="form-group col-md-2"></div>
+        <div class="form-group col-md-8 mt-5 mb-5 pb-5">
+
+            <!-- Restaurant Name -->
+            <div class="form-group ">
+                <label for="rname">Restaurant Name</label>
+                <input type="text" class="form-control" style="height: 40pt" formControlName="restaurantname" id="rname" placeholder="Restaurant Name">
+            </div>
+            <!-- Dish name -->
+            <div class="form-group mt-4">
+                <label for="dname">Dish Name</label>
+                <input type="text" class="form-control" style="height: 40pt" formControlName="dishname" id="dname" placeholder="Dish Name">
+            </div>
+            <!-- dish type -->
+            <div class="form-group">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="dishtype" formControlName="dishtype" id="inlineRadio1" value="veg">
+                    <label class="form-check-label" for="inlineRadio1">Veg</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="dishtype" formControlName="dishtype" id="inlineRadio2" value="nonveg">
+                    <label class="form-check-label" for="inlineRadio2">Non-veg</label>
+                  </div>
+            </div>
+            
+            <!-- Dish price -->
+            <div class="form-group">
+                <label class="mt-4" for="dprice">Dish Price</label>
+                <input type="number" class="form-control " style="height: 40pt" formControlName="dishprice" id="dprice" placeholder="Dish Price">
+            </div>
+            <!-- image file -->
+            <div class="mt-5">
+            <input type="file" class="form-control" formControlName="photo" (change)="incomingfile($event)" name="photo" accept='image/*' placeholder="Upload file" >
+            </div>
+            <!-- Submit button -->
+            <div class="form-group">
+                <button class="btn btn-primary mt-4">Create Dish</button>
+            </div>
+        </div>
+        <div class="form-group col-md-2"></div>
+    </div>
+</form> 
+
+ts
+--------
+ file:File;
+  formData= new FormData();
+  incomingfile(event){
+    this.file=event.target.files[0];
+
+  }
+
+  form = new FormGroup({
+    restaurantname : new FormControl ('',[]),
+    dishname : new FormControl ('',[]),
+    dishtype : new FormControl ('',[]),
+    dishprice : new FormControl ('',[]),
+    photo : new FormControl ('',[]),
+  })
+
+  onSubmit(form) {
+    let dishObj= form.value
+    dishObj["username"]=localStorage.getItem("username")
+   
+    //adding image and other data to FormData object
+    this.formData.append('photo',this.file,this.file.name);
+    this.formData.append("dishObj",JSON.stringify(dishObj))
+
+    // console.log(dishObj)
+    this.dish.createDish(this.formData).subscribe(
+      res => {
+        
+        if(res["message"]=="dish created"){
+          this.toastr.success("dish created sucussfully")
+        }
+
+          //this.router.navigateByUrl("/admindashboard")
+      },
+      err => {
+        this.toastr.error("dish creation error")
+        console.log(err)
+      }
+    )
+  }
+
+
+   get restaurantname (){
+    return this.form.get("restaurantname")
+  };
+  get dishname (){
+    return this.form.get("dishname")
+  };
+  get dishtype (){
+    return this.form.get("dishtype")
+  };
+  get dishprice (){
+    return this.form.get("dishprice")
+  };
+  get photo (){
+    return this.form.get("photo")
+  };

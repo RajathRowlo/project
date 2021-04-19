@@ -1,0 +1,30 @@
+<div class="entire" style="background-color: rgb(223, 214, 197);">
+    <div class="logo text-center">
+        <img src="assets/black.png" alt="" srcset="">
+    </div>
+
+</div>
+
+ <!-- navbar -->
+ <nav class="navbar navbar-expand-lg sticky-top navbar-light " style="background-color: azure;">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#" style="font-family: Georgia, serif;"> <strong> Hi {{Name}}</strong> </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+       
+        <li class="nav-item d-flex">
+          
+        </li>
+      </ul>
+      <form class="d-flex">
+        <button class="btn  me-2" routerLink="cart" style="background-image: linear-gradient(to right, white,rgb(179, 207, 179));">{{num}} Cart <i class="fab fa-opencart"></i></button>
+        <button class="btn " style="background-image: linear-gradient(to right, rgb(206, 155, 62),rgb(204, 100, 100));" (click)="logOut()">Log Out <i class="fas fa-sign-out-alt"></i></button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

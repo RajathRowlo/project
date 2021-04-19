@@ -1,0 +1,29 @@
+
+
+.behind{
+    /* background-image: linear-gradient(to bottom right, white,violet); */
+    background-image: url(../../assets/admindishback.jpg);
+    height: 50%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+/* codepen */
+
+.centered{
+    border: 2px solid;
+    border-radius: 5px;
+    background-image: url(../../assets/register.jpg);
+    height: 50%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+

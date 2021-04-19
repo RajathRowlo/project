@@ -1,0 +1,28 @@
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+.search-hero {
+    max-width: 500px;
+    padding-bottom: 50px;
+    margin:auto;
+  }
+  
+  .form-control {
+    box-shadow: 0 10px 20px 0 #484f58;
+  }
+  .form-control::placeholder  {
+    font-family: FontAwesome;
+  }
+
+.user{
+  /* background-image: linear-gradient(to bottom right,rgb(8, 8, 59),black); */
+  background-color: #111;
+}
+
+.btn{
+  background-color:  #c65039; color: white;
+  
+}

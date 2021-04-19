@@ -1,0 +1,96 @@
+<form [formGroup]='form' (ngSubmit)="onSubmit(form)" #registration="ngForm" >
+    <div class="row create">
+        <div class="form-group col-md-7"></div>
+        <div class="form-group col-md-4 mt-5  " style="margin-bottom: 300pt; ">
+
+            <!-- Restaurant Name -->
+            <div class="form-group ">
+                <label for="rname">Restaurant Name</label>
+                <input type="text" class="form-control" style="height: 40pt" formControlName="restaurantname" id="rname" placeholder="Restaurant Name">
+                <div *ngIf="(restaurantname.touched || registration.submitted) && restaurantname.invalid" class="text text-danger">
+                    <div *ngIf="restaurantname.errors.required">Restaurant Name Required</div>
+                </div>
+            </div>
+            <div class="form-group mt-4">
+                <div class="row">
+                    <div class="col-6 col-md-6">
+                        <!-- Dish id -->
+                        <label for="did">Dish ID</label>
+                        <input type="text" class="form-control" style="height: 40pt" formControlName="dishid" id="did" placeholder="Dish ID">
+                        <div *ngIf="(dishid.touched || registration.submitted) && restaurantname.invalid" class="text text-danger">
+                            <div *ngIf="dishid.errors.required">Dish ID Required</div>
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-6">
+                        <!-- Dish name -->
+                        <label for="dname">Dish Name</label>
+                        <input type="text" class="form-control" style="height: 40pt" formControlName="dishname" id="dname" placeholder="Dish Name">
+                        <div *ngIf="(dishname.touched || registration.submitted) && dishname.invalid" class="text text-danger">
+                            <div *ngIf="dishname.errors.required">Dish Name Required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group mt-4">
+                <div class="row">
+                    <div class="col-3 col-md-3 mt-4">
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="dishtype" formControlName="dishtype" id="inlineRadio1" value="veg">
+                            <label class="form-check-label" for="inlineRadio1">Veg</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="dishtype" formControlName="dishtype" id="inlineRadio2" value="nonveg">
+                            <label class="form-check-label" for="inlineRadio2">Non-veg</label>
+                        </div>
+                    </div>
+                    <div class="col-9 col-md-9">
+                        <label class="" for="dprice">Dish Price</label>
+                        <input type="number" class="form-control " style="height: 40pt" formControlName="dishprice" id="dprice" placeholder="Dish Price">
+                        <div *ngIf="(dishprice.touched || registration.submitted) && dishprice.invalid" class="text text-danger">
+                            <div *ngIf="dishprice.errors.required">Dish Price Required</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- dish speciality -->
+            <div class="form-group mt-4">
+                <label for="speciality">Dish Speciality</label>
+                <!-- dropdown speciality -->
+                <select formControlName="speciality" class="ms-5 ps-5 pe-5">
+                    <option  selected>Select speciality</option>
+                    <option [value]="s" *ngFor="let s of Speciality">{{s}}</option>
+                </select>
+                <div *ngIf="(speciality.touched || registration.submitted) && speciality.invalid" class="text text-danger">
+                    <div *ngIf="speciality.errors.required">Dish Speciality Required</div>
+                </div>
+            </div>
+            <!-- dish description -->
+            <div class="form-group mt-4">
+                <label for="dishdescription">Dish description</label>
+                <input type="text" class="form-control" style="height: 40pt" formControlName="dishdescription" id="dishdescription" placeholder="Dish description">
+            
+            </div>
+            
+            <!-- Dish price -->
+            <div class="form-group">
+                
+            </div>
+            <!-- image file -->
+            <div class="mt-5">
+            <input type="file" class="form-control" formControlName="photo" (change)="incomingfile($event)" name="photo" accept='image/*' placeholder="Upload file" >
+            <div *ngIf="(photo.touched || registration.submitted) && photo.invalid" class="text text-danger">
+                <div *ngIf="photo.errors.required">Dish Image Required</div>
+            </div>
+            </div>
+            <!-- Submit button -->
+            <div class="form-group">
+                <button class="btn btn-primary mt-4" style="background-image: linear-gradient(to right,rgb(22, 22, 104),black);">Create Dish</button>
+            </div>
+        </div>
+        <div class="form-group col-md-1"></div>
+    </div>
+</form>
+
+
+

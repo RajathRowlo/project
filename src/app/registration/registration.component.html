@@ -1,0 +1,69 @@
+
+<div class="row behind" >
+    <div class="col-md-4"></div>
+    <div class="col-md-4 centered " style=" margin-top: 100px; margin-bottom: 300px; ">
+        <form [formGroup]='form' (ngSubmit)="onsubmit(form)" #registration="ngForm" >
+            <div class="row mt-5" style="color: white;">
+                <p class="text-center">Create your account. It's free and only take a minute</p>
+                <div class="form-group col-md-2"></div>
+                <div class="form-group col-md-8 mt-1 mb-5 pb-5">
+                    <div class="form-check form-switch">
+                        <input class="form-check-input" type="radio" id="admin" name="usertype" formControlName="usertype" value="admin" ngModel>
+                        <label class="form-check-label"  for="admin">Admin</label>
+                      </div>
+          
+                      <div class="form-check form-switch">
+                        <input class="form-check-input" type="radio" id="user" name="usertype"  formControlName="usertype" value="user" ngModel>
+                        <label class="form-check-label"  for="user">User</label>
+                      </div>
+        
+                    <!-- Username -->
+                    <div class="form-group ">
+                        <label for="un">Username</label>
+                        <input type="text" class="form-control" style="height: 40pt" formControlName="username" id="un" placeholder="Username">
+                        <!-- validators -->
+                        <div *ngIf="(username.touched || registration.submitted) && username.invalid" class="text text-danger">
+                            <div *ngIf="username.errors.required">Username Required</div>
+                            <div *ngIf="username.errors.minlength">Minimum 6 charecters</div>
+                            <div *ngIf="username.errors.maxlength">Minimum 30 charecters</div>
+                        </div>
+                    </div>
+                    <!-- Password -->
+                    <div class="form-group">
+                        <label class="mt-4" for="pwd">Password</label>
+                        <input type="password" class="form-control " style="height: 40pt" formControlName="password" id="pwd" placeholder="Password">
+                        <!-- validators -->
+                        <div *ngIf="(password.touched || registration.submitted) && password.invalid" class="text text-danger">
+                            <div *ngIf="password.errors.required">Username Required</div>
+                            <div *ngIf="password.errors.minlength">Minimum 5 charecters</div>
+                            <div *ngIf="password.errors.maxlength">Minimum 15 charecters</div>
+                        </div>
+                    </div>
+                    <!-- Email -->
+                    <div class="form-group">
+                        <label class="mt-4" for="em">Email address </label>
+                        <input type="email" class="form-control " style="height: 40pt" formControlName="email" id="em" placeholder="name@example.com">
+                        <!-- validators -->
+                        <div *ngIf="(email.touched || registration.submitted) && email.invalid" class="text text-danger">
+                            <div *ngIf="email.errors.required">Email Required</div>
+                        </div>
+                    </div>
+                    <!-- Submit button -->
+                    <div class="form-group d-grid gap-2  mx-auto">
+                        <button class="btn btn-primary mt-4"  [disabled]="form.invalid">Register</button>
+                    </div>
+                    <p class="text-center" (click)="navigate()" >Already have an account? <a href="" style="color: white;">Login</a> </p>
+                </div>
+                <div class="form-group col-md-2"></div>
+            </div>
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+
+
+
+
+
+

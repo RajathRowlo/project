@@ -1,0 +1,14 @@
+.create{
+    background-image: url("https://us.123rf.com/450wm/karandaev/karandaev1606/karandaev160600383/58872226-herbs-and-spices-over-black-stone-background-top-view-with-copy-space.jpg?ver=6");
+    height: 50%;
+     /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+label{
+    color: white;
+    
+}

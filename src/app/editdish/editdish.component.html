@@ -1,0 +1,110 @@
+<form #formRef="ngForm" (ngSubmit)="onSubmit(formRef)" class="border border-dark">
+
+    <div class="row background ">
+      <div class="form-floating col-md-1"></div>
+      <div class="form-floating col-md-5 mt-5 " style="margin-bottom: 300pt;">
+        <div class="form-floating mb-3">
+          <div class="row">
+            <div class="col-md-3">
+              <label for="uname" style="color:white;">Username Name</label>
+            </div>
+            <div class="col-md-5">
+              <input type="text" class="form-control" id="uname" placeholder="User Name" name="uname" readonly [(ngModel)]="Dish.username">
+            </div>
+            <div class="col-md-4"></div>
+          </div>      
+        </div>
+      <div class="form-floating mb-3">
+        <div class="row">
+          <div class="col-md-3">
+            <label for="rname" style="color: white;">Restaurant Name</label>
+          </div>
+          <div class="col-md-5">
+            <input type="text" class="form-control" id="rname" placeholder="restaurantname" name="restaurantname" readonly [(ngModel)]="Dish.restaurantname">
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+        
+        
+      </div>
+      <div class="form-floating mb-3">
+        <div class="row">
+          <div class="col-md-3">
+            <label for="dishid" style="color: white;">Dish Id</label>
+          </div>
+          <div class="col-md-5">
+            <input type="text" class="form-control" id="dishid" placeholder="Dish Id" name="dishid" readonly [(ngModel)]="Dish.dishid">
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+          
+          
+        </div>
+      <div class="form-floating mb-3">
+        <div class="row">
+          <div class="col-md-3">
+            <label for="dishname" style="color: white;">Dish Name</label>
+          </div>
+          <div class="col-md-5">
+            <input type="text" class="form-control" id="dname" placeholder="Dish Name" name="dishname" [(ngModel)]="Dish.dishname">
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+        
+        
+      </div>
+      <div class="form-floating mb-3">
+        <div class="row">
+          <div class="col-md-3">
+            <label for="dishtype" style="color: white;">Dish Type</label>
+          </div>
+          <div class="col-md-5">
+            <input type="text" class="form-control" id="dname" placeholder="Dish Type" name="dishtype" [(ngModel)]="Dish.dishtype">
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+         
+          
+        </div>
+      <div class="form-floating mb-3">
+        <div class="row">
+          <div class="col-md-3">
+            <label for="dishprice" style="color: white;">Dish Price</label>
+          </div>
+          <div class="col-md-5">
+            <input type="number" class="form-control" id="dishprice" placeholder="Dish Price" name="dishprice" [(ngModel)]="Dish.dishprice">
+          </div>
+          <div class="col-md-4"></div>
+        </div>
+           
+      </div>
+
+      <div class="form-floating mb-3">
+        <div class="row">
+          <div class="col-md-3">
+            <label for="dishdescription" style="color: white;">Dish Description</label>
+          </div>
+          <div class="col-md-9">
+            <input type="text" class="form-control" id="dishdescription" placeholder="Dish Description" name="dishdescription" [(ngModel)]="Dish.dishdescription">
+          </div>
+          
+        </div>
+           
+      </div>
+
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-5 d-grid">
+          <button class="btn" style="background-color: burlywood;">
+            <strong>Save</strong>
+          </button>
+        </div>
+        <div class="col-md-4"></div>
+      </div>
+     
+      </div>
+      <div class="form-floating col-md-6"></div>
+    </div>
+   
+
+</form>

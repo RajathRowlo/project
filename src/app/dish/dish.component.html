@@ -1,0 +1,22 @@
+<div class="background" >
+<div class="container ">
+<div class="row row-cols-3 row-cols-md-3  " >
+    <div class="col" *ngFor="let dish of dishArray;let ind=index" style="margin-bottom: 100pt;">
+      <div class="card h-100 mt-5"  >
+        <img [src]="dish?.photo" class="card-img-top" alt="photo">
+        <div class="card-body">
+          <h5 class="card-title">{{dish?.restaurantname}}</h5>
+          <h5 class="card-title">{{dish?.dishname}}</h5>
+          <p class="card-text">Dish price {{dish?.dishprice}}</p>
+          <p class="card-text">{{dish?.dishdescription}}</p>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-between ">
+            <button class="btn " style="background-image: linear-gradient(to right, white,rgb(134, 202, 134));" (click)="edit(dish.dishid)">Edit</button>
+            <button class="btn btn-danger" style="background-image: linear-gradient(to right, red,rgb(238, 102, 124));" (click)="delete(dish.dishid,ind)">Delete <i class="fas fa-trash-alt"></i></button></div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+</div>

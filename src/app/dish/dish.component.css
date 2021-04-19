@@ -1,0 +1,15 @@
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+.background{
+    background-image: url("https://i.pinimg.com/originals/ab/16/b1/ab16b19e0efdea0eb00c275b2527dca8.jpg");
+    height: 100%;
+     /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
